@@ -9,7 +9,7 @@ BinarySearchTree {
     }
     struct node* root;
     public:
-    void addNode(node* root, int data){   
+    node* addNode(node* root, int data){   
         if(root == NULL){       
             return createNode(data);    
         }   
@@ -65,19 +65,22 @@ BinarySearchTree {
         return root;
     }
 
-    void inorder() {
+    void inorder(node* root) {
+        if(root == NULL) return;
         inorder(root->left);
-        cout<< (root->val) << endl;
-        inorder(root->right);
+        cout << (root->data) << endl;
+        inroder(root->right);
    }
 
-   void inorder(node* root) {
+   void preorder(node* root) {
+        if(root == NULL) return;
         cout<< (root->val) << endl;
         preorder(root->left);
         preorder(root->right);
-     }
-
-     void inorder(node* root) {
+   }
+    
+     void postorder(node* root) {
+        if(root == NULL) return;
         postorder(root->left);
         postorder(root->right);
         cout<< (root->val) << endl;
